@@ -1,0 +1,5 @@
+USE burgers_db;
+
+INSERT INTO burgers (burger_name) VALUES ('PEANUT BUTTER BACON SRIRACHA BURGER');
+INSERT INTO burgers (burger_name) VALUES ('DOUBLE BACON WESTERN CHEESE BURGER');
+INSERT INTO burgers (burger_name) VALUES ('GRILLED CHEESE');
