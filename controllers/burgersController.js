@@ -2,22 +2,25 @@ const express = require("express");
 const burger = require("../models/burger.js")
 const router = express.Router();
 
+
 router.get("/", (req, res) => {
-    burger.all((data) => {
-        const burgerObject = {
-            burgers: data,
-        };
-        res.render("index", burgerObject)
+    res.redirect("/burgers");
+  });
+
+
+router.get("/burgers", (req, res) => {
+    burger.all((burgerData) => {
+        res.render("index", {burger_data: burgerData}) //use destructuring
     });
 });
 
-router.post("/api/burgers", (req, res) => {
+router.post("/burgers/create", (req, res) => {
     burger.create ({ burger_name: req.body.name}, (result) => {
         res.json({id: result.insertId})
     })
 });
 
-router.put("/api/burgers/:id/devoured", (req, res) => {
+router.put("/burgers/:id/devoured", (req, res) => {
     const condition = {id: req.params.id};
     const update = {devoured: req.body.value};
 
@@ -28,3 +31,5 @@ router.put("/api/burgers/:id/devoured", (req, res) => {
         
     })
 })
+
+module.exports = router;

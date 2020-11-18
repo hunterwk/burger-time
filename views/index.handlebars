@@ -1,7 +1,38 @@
 <div class="container">
-    <div class ="row">
-        <div class="col-md-12 text-center" id="top-bar">
-            <h1>Burger TIME!</h1>
-        </div>
+	<div class="row">
+		<div class="col-md-12 text-center" id="top-bar">
+			<img src="/assets/burger.png" alt="burger" />
+			<h1> Eat-Da-Burger! </h1>
+		</div>
+  </div>
+  <div class="row">
+		<div class="col-lg-6">
+      <section class="mt-3">
+        <ul class="list-group">
+			  {{#each burger_data}}
+			  	{{#unless devoured}}
+            <li class="list-group-item d-flex justify-content-between flex-wrap burger">
+                <span class="pr-2">{{ burger_name }}</span>
+                <button type="button" class="btn btn-secondary btn-small devour" value="{{ id }}">Devour It!</button>
+            </li>
+				  {{/unless}}
+			  {{/each}}
+        </ul>
+      </section>
+		</div>
+    <hr>
+		<div class="col-lg-6">
+      <div class="mt-3">
+        <ul class="list-group">
+          {{#each burger_data}}
+            {{#if devoured}}
+              <li class="list-group-item disabled burger">
+                  <span>{{ burger_name }}</span>
+              </li>
+            {{/if}}
+          {{/each}}
+        </ul>
+      </div>
     </div>
+	</div>
 </div>

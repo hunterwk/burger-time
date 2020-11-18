@@ -6,14 +6,12 @@ const burger = {
             cb(res);
         });
     },
-    create: (newBurger, cb) => {
-        orm.insertOne("burgers", newBurger, (res) => {
-            cb(res);
-        });
+    create: (name, cb) => {
+        orm.insertOne("burgers", {burger_name: name, devoured: false}, cb);
     },
-    update: (burgerData, criteria, cb) => {
-        orm.updateOne("burgers", burgerData, criteria, (res) => {
-            cb(res);
-        });
+    update: ( id, cb) => {
+        orm.updateOne("burgers", {devoured: true}, {id}, cb)
+        },
     }
-}
+
+module.exports = burger;
