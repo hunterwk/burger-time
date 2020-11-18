@@ -22,7 +22,7 @@ const orm = {
         });
     },
     updateOne: (table, updateValues, condition, cb) => {
-        const queryString = "UPDATE ?? SET ? WHERE ?";
+        const queryString = "UPDATE ?? SET ? WHERE ? LIMIT 1";
         const values = [table, updateValues, condition];
     
         console.log(queryString);
