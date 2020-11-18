@@ -14,7 +14,7 @@ const orm = {
         const queryS = "INSERT INTO ?? SET ?";
         const values = [table, newRowData];
     
-        connection.query(queryString, values, (err, result) => {
+        connection.query(queryS, values, (err, result) => {
           if (err) {
             throw err;
           }
